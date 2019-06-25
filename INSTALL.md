@@ -17,12 +17,19 @@ kubectl apply -f install/kubernetes/istio-demo.yaml
 
 **Note:**  
 1. Set no_proxy
-```console
-export no_proxy=localhost,127.0.0.1,10.164.178.0/24
-```
+
+`export no_proxy=localhost,127.0.0.1,10.164.178.0/24`
+
 2. Force delete pod stuck in terminating status
+
+`kubectl delete pod $POD_NAME -n $NAMESPACE --grace-period=0 --force`
+
+### 4. Uninstall Istio
+
 ```console
-kubectl delete pod $POD_NAME -n $NAMESPACE --grace-period=0 --force
+kubectl delete -f install/kubernetes/istio-demo.yaml
+
+for i in install/kubernetes/helm/istio-init/files/crd*yaml; do kubectl delete -f $i; done
 ```
 
 ## Installing Bookinfo app
@@ -37,7 +44,7 @@ kubectl label namespace default istio-injection=enabled
 kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
 ```
 
-### 3. Cleaning Bookinfo
+### 3. Clean Bookinfo
 ```console
 samples/bookinfo/platform/kube/cleanup.sh
 ```
