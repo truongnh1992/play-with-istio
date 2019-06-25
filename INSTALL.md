@@ -11,7 +11,15 @@ for i in install/kubernetes/helm/istio-init/files/crd*yaml; do sudo kubectl appl
 sudo kubectl apply -f install/kubernetes/istio-demo.yaml
 ```
 
-`Note:` export no_proxy=localhost,127.0.0.1,10.164.178.0/24
+**Note:**  
+1. Set no_proxy
+```console
+export no_proxy=localhost,127.0.0.1,10.164.178.0/24
+```
+2. Force delete pod stuck in terminating status
+```console
+kubectl delete pod $POD_NAME -n $NAMESPACE --grace-period=0 --force
+```
 
 # Installing Bookinfo app
 
