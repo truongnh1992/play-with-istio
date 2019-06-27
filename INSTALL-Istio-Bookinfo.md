@@ -18,7 +18,7 @@ kubectl apply -f install/kubernetes/istio-demo.yaml
 **Note:**  
 1. Set no_proxy
 
-`export no_proxy=localhost,127.0.0.1,10.164.178.0/24`
+`export no_proxy=localhost,127.0.0.1,{ip-range}/24`
 
 2. Force delete pod stuck in terminating status
 
