@@ -5,7 +5,7 @@
 # $1 is a valid namespace
 
 if [ $# -ne 1 ]; then
-    echo $0": usage: ./refresh.sh <namespace>"
+    echo $0": usage: ./upgrade-sidecar.sh <namespace>"
     exit 1
 fi
 
