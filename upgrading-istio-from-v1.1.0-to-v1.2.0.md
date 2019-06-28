@@ -49,8 +49,7 @@ cd istio-1.2.0
 #### 1. Backing up your custom resource data, before proceeding with the upgrade 
 
 ```console
-kubectl get crds | grep 'istio.io\|certmanager.k8s.io' | cut -f1-1 -d "." | \
-xargs -n1 -I{} sh -c "kubectl get --all-namespaces -oyaml {}; echo ---" > $HOME/ISTIO_1_0_RESTORE_CRD_DATA.yaml
+kubectl get crds | grep 'istio.io\|certmanager.k8s.io' | cut -f1-1 -d "." | xargs -n1 -I{} sh -c "kubectl get --all-namespaces -oyaml {}; echo ---" > $HOME/ISTIO_1_0_RESTORE_CRD_DATA.yaml
 ```
 #### 2. Use `kubectl apply` to upgrade all the Istio's CRDs
 ```console
