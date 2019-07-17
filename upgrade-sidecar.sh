@@ -1,3 +1,4 @@
+# Credit: @jmound (https://github.com/jmound) and @adinunzio84 (https://github.com/adinunzio84)
 # based on the "patch deployment" strategy in this comment:
 # https://github.com/kubernetes/kubernetes/issues/13488#issuecomment-372532659
 # requires jq
