@@ -70,7 +70,9 @@ helm template install/kubernetes/helm/istio --name istio --namespace istio-syste
 ### Setup the woker's node kubelet to use the proxy's CRI socket
 
 ```console
-docker exec test-worker /bin/bash -c 'echo "KUBELET_KUBEADM_ARGS=--container-runtime=remote --container-runtime-endpoint=/var/run/istio-pilot-node-agent.sock" > /var/lib/kubelet/kubeadm-flags.env'
+docker exec test-worker /bin/bash -c \
+'echo "KUBELET_KUBEADM_ARGS=--container-runtime=remote \
+--container-runtime-endpoint=/var/run/istio-pilot-node-agent.sock" > /var/lib/kubelet/kubeadm-flags.env'
 
 docker exec test-worker systemctl restart kubelet
 ```
